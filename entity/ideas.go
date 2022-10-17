@@ -88,8 +88,9 @@ func (r *IdeaRepository) UpdateIdea(idea Idea) (int, error) {
 }
 
 // DeleteIdea : Delete an idea
-func (r *IdeaRepository) DeleteIdea(idea Idea) error {
-	_, err := r.Database.Model(&idea).Delete()
+func (r *IdeaRepository) DeleteIdea(id int) error {
+	idea := Idea{ID: id}
+	_, err := r.Database.Model(&idea).Where("id = ?", id).Delete()
 
 	if err != nil {
 		return err
