@@ -7,10 +7,12 @@ import (
 	pg "github.com/go-pg/pg/v10"
 )
 
+// PostgresServer : structure knowing connection to postgres database server
 type PostgresServer struct {
 	DB *pg.DB
 }
 
+// ConnectToDB : method of server, performing connection
 func (ps *PostgresServer) ConnectToDB(env Env) {
 	ps.DB = pg.Connect(&pg.Options{
 		Addr:     env.PostgresHost + ":" + strconv.Itoa(env.PostgresPort),
