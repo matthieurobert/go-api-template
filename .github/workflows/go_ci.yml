@@ -1,7 +1,5 @@
 name: Go CI
 
-name: Go api CI
-
 on:
   push:
     branches: [ main, develop ]
